@@ -59,27 +59,27 @@ async function seed() {
   })
   console.timeEnd('👑 Created roles...')
 
-  console.time(`👤 Created regular user "ellemmentuser"`)
+  console.time(`👤 Created regular user "creemsonuser"`)
   const userImage = await img({ filepath: './tests/fixtures/images/user/elementuser.png' })
   
   await prisma.user.create({
     select: { id: true },
     data: {
-      email: 'ellemmentuser@ellemment.com',
-      username: 'ellemmentuser',
-      name: 'Ellemment User',
+      email: 'admin@creemson.com',
+      username: 'creemsonuser',
+      name: 'creemson user',
       image: { create: userImage },
-      password: { create: createPassword('ellemment') },
+      password: { create: createPassword('creemsonuser') },
       roles: { connect: { name: 'user' } },
     },
   })
-  console.timeEnd(`👤 Created regular user "ellemmentuser"`)
+  console.timeEnd(`👤 Created regular user "creemsonuser"`)
 
-  console.time(`🧑‍💻 Created admin user "ellemmentdev"`)
-  const ellemmentImages = await promiseHash({
-    ellemmentdevUser: img({ filepath: './tests/fixtures/images/user/elementadmin.png' }),
-    ellemmentLogo: img({
-      altText: 'ellemments logo',
+  console.time(`🧑‍💻 Created admin user "creemsonadmin"`)
+  const creemsonImages = await promiseHash({
+    creemsondevUser: img({ filepath: './tests/fixtures/images/user/elementadmin.png' }),
+    creemsonLogo: img({
+      altText: 'creemsons logo',
       filepath: './tests/fixtures/images/admin-content/elementlogo.png',
     }),
   })
@@ -90,11 +90,11 @@ async function seed() {
   await prisma.user.create({
     select: { id: true },
     data: {
-      email: 'admin@ellemment.com',
-      username: 'ellemmentadmin',
-      name: 'ellemment',
-      image: { create: ellemmentImages.ellemmentdevUser },
-      password: { create: createPassword('ellemmentadmin') },
+      email: 'user@creemson.com',
+      username: 'creemsonadmin',
+      name: 'creemson',
+      image: { create: creemsonImages.creemsondevUser },
+      password: { create: createPassword('creemsonadmin') },
       connections: {
         create: [
           { providerName: 'github', providerId: githubUser.profile.id },
@@ -109,13 +109,13 @@ async function seed() {
             title: 'Introduction to System Dynamics',
             content:
               'System dynamics is an approach to understanding the nonlinear behavior of complex systems over time using stocks, flows, internal feedback loops, and time delays.',
-            images: { create: [ellemmentImages.ellemmentLogo] },
+            images: { create: [creemsonImages.creemsonLogo] },
           },
         ],
       },
     },
   })
-  console.timeEnd(`🧑‍💻 Created admin user "ellemmentdev"`)
+  console.timeEnd(`🧑‍💻 Created admin user "creemsonadmin"`)
 
   console.timeEnd(`🌱 Database has been seeded`)
 }

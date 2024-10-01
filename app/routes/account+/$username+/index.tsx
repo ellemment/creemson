@@ -4,8 +4,6 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { Form, Link, useLoaderData, type MetaFunction } from '@remix-run/react'
 import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
 import { Spacer } from '#app/components/spacer.tsx'
-import { Button } from '#app/components/ui/button.tsx'
-import { Icon } from '#app/components/ui/icon.tsx'
 import { checkAdminStatus } from '#app/utils/adminstatus.ts'
 import { requireUserId } from '#app/utils/auth.server.ts'
 import { prisma } from '#app/utils/db.server.ts'
@@ -75,10 +73,10 @@ export default function ProfileRoute() {
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const displayName = data?.user.name ?? data?.user.username
   return [
-    { title: `${displayName} | ellemment` },
+    { title: `${displayName} | Creemson` },
     {
       name: 'description',
-      content: `Profile of ${displayName} on ellemment`,
+      content: `Profile of ${displayName} on Creemson`,
     },
   ]
 }

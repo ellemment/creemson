@@ -175,7 +175,7 @@ export async function action({ request, params }: ActionFunctionArgs) {
 }
 
 export const meta: MetaFunction = () => {
-	return [{ title: 'Setup ellemment Account' }]
+	return [{ title: 'Setup Creemson Account' }]
 }
 
 export default function OnboardingProviderRoute() {

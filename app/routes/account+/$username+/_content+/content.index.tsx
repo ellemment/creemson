@@ -62,10 +62,10 @@ export const meta: MetaFunction<
   const contentText = contentCount === 1 ? 'content' : 'contents'
 
   return [
-    { title: `${displayName}'s Content | ellemment` },
+    { title: `${displayName}'s Content | Creemson` },
     {
       name: 'description',
-      content: `Manage ${displayName}'s ${contentCount} ${contentText} on ellemment`,
+      content: `Manage ${displayName}'s ${contentCount} ${contentText} on Creemson`,
     },
   ]
 }

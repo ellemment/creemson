@@ -223,7 +223,7 @@ export const meta: MetaFunction<
       ? data.content.content.slice(0, 97) + '...'
       : 'No content'
   return [
-    { title: `${contentTitle} | ${displayName}'s Content | ellemment` },
+    { title: `${contentTitle} | ${displayName}'s Content | Creemson` },
     {
       name: 'description',
       content: contentContentSummary,

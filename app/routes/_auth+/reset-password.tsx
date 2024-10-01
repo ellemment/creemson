@@ -68,7 +68,7 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export const meta: MetaFunction = () => {
-	return [{ title: 'Reset Password | ellemment' }]
+	return [{ title: 'Reset Password | Creemson' }]
 }
 
 export default function ResetPasswordPage() {

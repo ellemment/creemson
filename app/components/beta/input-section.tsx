@@ -1,19 +1,29 @@
-import React from 'react';
-import { Icon } from '#app/components/ui/icon';
+// app/components/beta/input-section.tsx
 
-export function InputSection() {
+import React from 'react';
+
+interface InputSectionProps {
+  onFileChange: (file: File | null) => void;
+}
+
+export function InputSection({ onFileChange }: InputSectionProps) {
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      onFileChange(event.target.files[0]);
+    } else {
+      onFileChange(null);
+    }
+  };
+
   return (
-    <div className="p-6">
-      <div className="flex items-center justify-center w-full">
-        <label htmlFor="dropzone-file" className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600">
-          <div className="flex flex-col items-center justify-center pt-5 pb-6">
-            <Icon name="upload" className="w-10 h-10 mb-3 text-gray-400" />
-            <p className="mb-2 text-sm text-gray-500 dark:text-gray-400"><span className="font-semibold">Click to upload</span> or drag and drop</p>
-            <p className="text-xs text-gray-500 dark:text-gray-400">CSV, TSV, or Excel files</p>
-          </div>
-          <input id="dropzone-file" type="file" className="hidden" />
-        </label>
-      </div>
+    <div className="p-6 border rounded-lg shadow-sm">
+      <h2 className="text-2xl font-semibold mb-4">Input</h2>
+      <input
+        type="file"
+        onChange={handleFileChange}
+        accept=".csv,.tsv,.xls,.xlsx"
+        className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+      />
     </div>
   );
 }

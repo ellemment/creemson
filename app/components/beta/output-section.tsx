@@ -1,27 +1,44 @@
 // app/components/beta/output-section.tsx
 
 import React from 'react';
-import { ResultsDetailed } from './results-detailed';
-import { ResultsOverview } from './results-overview';
 
+interface OutputSectionProps {
+  summary: string | null;
+  outputData: any | null;
+}
 
-export function OutputSection() {
+export function OutputSection({ summary, outputData }: OutputSectionProps) {
+  const handleDownload = () => {
+    // Implement download functionality here
+    console.log("Downloading output...");
+  };
+
   return (
-    <div className="space-y-8">
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow">
-        <div className="space-y-4">
-          <button className="px-4 py-2 bg-purple-500 text-white rounded hover:bg-purple-600">Generate RMS Output</button>
-          <div>
-            <h3 className="text-lg font-medium mb-2">Download Files</h3>
-            <ul className="list-disc list-inside space-y-2">
-              <li><a href="#" className="text-blue-500 hover:underline">Download Check File</a></li>
-              <li><a href="#" className="text-blue-500 hover:underline">Download Output File</a></li>
-            </ul>
-          </div>
+    <div className="p-6 border rounded-lg shadow-sm">
+      <h2 className="text-2xl font-semibold mb-4">Output</h2>
+      
+      {summary && (
+        <div className="mb-4">
+          <h3 className="text-lg font-medium">Summary</h3>
+          <p>{summary}</p>
         </div>
-      </div>
-      <ResultsOverview />
-      <ResultsDetailed />
+      )}
+      
+      {outputData && (
+        <div className="mb-4">
+          <h3 className="text-lg font-medium">Output Data</h3>
+          <pre className=" p-2 rounded">
+            {JSON.stringify(outputData, null, 2)}
+          </pre>
+        </div>
+      )}
+      
+      <button
+        onClick={handleDownload}
+        className="px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
+      >
+        Download Output
+      </button>
     </div>
   );
 }

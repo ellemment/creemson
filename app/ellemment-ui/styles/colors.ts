@@ -1,4 +1,4 @@
-// creemson/app/ellemment-ui/styles/colors.ts
+// ellemment-stack/app/ellemment-ui/styles/colors.ts
 
 export const colors = {
     element: {

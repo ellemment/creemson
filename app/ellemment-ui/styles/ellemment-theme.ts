@@ -1,4 +1,4 @@
-// creemson/app/ellemment-ui/styles/tailwind-preset.ts
+// ellemment-stack/app/ellemment-ui/styles/tailwind-preset.ts
 
 import { type Config } from 'tailwindcss'
 import { colors } from './colors'

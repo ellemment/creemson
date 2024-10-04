@@ -1,11 +1,11 @@
 // app/ellemment-ui/components/account/account-island.tsx
 import { Link, Form } from '@remix-run/react';
-import { motion } from 'framer-motion';
 import React from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from '#app/components/ui/avatar';
 import { Button } from '#app/components/ui/button';
 import { DynamicIsland } from '#app/components/ui/dynamic-island';
 import { Icon } from '#app/components/ui/icon';
+import { motion } from 'framer-motion';
 
 interface User {
   id: string;

@@ -3,8 +3,7 @@
 import { Link, useLocation } from '@remix-run/react';
 import { motion, AnimatePresence } from 'framer-motion';
 import React, { useState, useEffect } from 'react';
-import Logo from '#app/components/logo';
-import { NavLinks } from '#app/ellemment-ui/components/navigation/navlinks';
+import { NavLinks } from '#app/ellemment-ui/components/navigation/navbar-global';
 import { ThemeSwitch } from '#app/routes/resources+/theme-switch';
 import { type Theme } from '#app/utils/theme.server';
 
@@ -43,7 +42,7 @@ export function GlobalHeader({ userPreference, className = '' }: GlobalHeaderPro
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center">
             <Link to='/' className="text-inherit hover:opacity-75 transition-opacity">
-              <span className="text-sm font-medium">Creemson</span>
+              <span className="text-sm font-medium">ellemments</span>
             </Link>
           </div>
           <div className="hidden lg:flex lg:items-center lg:justify-center lg:gap-10">

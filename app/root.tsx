@@ -18,7 +18,7 @@ import {
 } from '@remix-run/react'
 import { withSentry } from '@sentry/remix'
 import { HoneypotProvider } from 'remix-utils/honeypot/react'
-import { GlobalHeader } from '#app/ellemment-ui/components/navigation/header-global'
+import { GlobalHeader } from '#app/ellemment-ui/components/navigation/headers/header-global'
 import { GeneralErrorBoundary } from './components/error-boundary.tsx'
 import { EpicProgress } from './components/progress-bar.tsx'
 import { useToast } from './components/toaster.tsx'

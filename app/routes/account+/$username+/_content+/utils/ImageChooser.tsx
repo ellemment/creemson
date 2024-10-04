@@ -2,7 +2,7 @@
 
 import { getFieldsetProps, getInputProps , type FieldMetadata } from '@conform-to/react'
 import React, { useState } from 'react'
-import { ErrorList } from '#app/components/forms'
+import { ErrorList } from '#app/components/core/forms'
 import { Icon } from '#app/components/ui/icon'
 import { cn, getContentImgSrc } from '#app/utils/misc'
 import  { type ImageFieldset } from './contentEditorSchema'

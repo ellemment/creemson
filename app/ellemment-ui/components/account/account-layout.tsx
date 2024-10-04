@@ -1,12 +1,12 @@
 import React from 'react'
 import { type Theme } from '#app/utils/theme.server.ts'
-import { AccountIsland } from './account-island'
-import { AccountNavLinks } from './account-navlinks'
 import {
   Sidebar,
   SidebarHeader,
   SidebarSection,
 } from '../../../components/account/sidebar'
+import { AccountIsland } from './account-island'
+import { AccountNavLinks } from './account-navlinks'
 
 type Content = {
   id: string;

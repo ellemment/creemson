@@ -2,8 +2,8 @@
 
 import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { Form, Link, useLoaderData, type MetaFunction } from '@remix-run/react'
-import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
+import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
+import { Spacer } from '#app/components/core/spacer.tsx'
 import { checkAdminStatus } from '#app/utils/adminstatus.ts'
 import { requireUserId } from '#app/utils/auth.server.ts'
 import { prisma } from '#app/utils/db.server.ts'

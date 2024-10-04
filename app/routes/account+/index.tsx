@@ -2,7 +2,7 @@
 
 import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { useLoaderData, type MetaFunction } from '@remix-run/react'
-import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
+import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
 import { CreateButton } from '#app/ellemment-ui/components/account/account-create.js'
 import { AccountPanel } from '#app/ellemment-ui/components/account/account-panel'
 import { AccountSettings } from '#app/ellemment-ui/components/account/account-settings'

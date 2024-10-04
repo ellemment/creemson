@@ -5,8 +5,8 @@ import {
   IconTableColumn,
 } from "@tabler/icons-react";
 import React from "react";
-import { BentoGrid, BentoGridItem } from "#app/components/landing-utility/bento-grid";
 import { cn } from "#app/ellemment-ui/lib/utils";
+import { BentoGrid, BentoGridItem } from "./bento-grid";
 
 export default function Discover() {
   return (

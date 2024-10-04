@@ -21,8 +21,8 @@ import {
 } from '@remix-run/react'
 import { safeRedirect } from 'remix-utils/safe-redirect'
 import { z } from 'zod'
-import { CheckboxField, ErrorList, Field } from '#app/components/forms.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
+import { CheckboxField, ErrorList, Field } from '#app/components/core/forms.tsx'
+import { Spacer } from '#app/components/core/spacer.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
 import {
 	authenticator,

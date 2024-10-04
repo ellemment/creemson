@@ -1,11 +1,11 @@
 import { json, type LoaderFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
 import React, { useState } from 'react';
-import { ApiStatusAlert } from '#app/components/beta/common/api-status-alert';
-import { ProgressStepper } from '#app/components/beta/common/progress-stepper';
-import { InputSection } from '#app/components/beta/input-section';
-import { OutputSection } from '#app/components/beta/output-section';
-import { ProcessorSection } from '#app/components/beta/processor-section';
+import { ApiStatusAlert } from '#app/components/creemson/common/api-status-alert.js';
+import { ProgressStepper } from '#app/components/creemson/common/progress-stepper.js';
+import { InputSection } from '#app/components/creemson/input-section.js';
+import { OutputSection } from '#app/components/creemson/output-section.js';
+import { ProcessorSection } from '#app/components/creemson/processor-section.js';
 import { processFile } from '#app/utils/creemson-api';
 
 interface LoaderData {

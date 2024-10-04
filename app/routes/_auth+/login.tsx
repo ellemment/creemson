@@ -10,8 +10,8 @@ import {
 import { Form, Link, useActionData, useSearchParams } from '@remix-run/react'
 import { HoneypotInputs } from 'remix-utils/honeypot/react'
 import { z } from 'zod'
-import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
-import { CheckboxField, ErrorList, Field } from '#app/components/forms.tsx'
+import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
+import { CheckboxField, ErrorList, Field } from '#app/components/core/forms.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
 import { login, requireAnonymous } from '#app/utils/auth.server.ts'
 import {

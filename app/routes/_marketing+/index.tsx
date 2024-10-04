@@ -1,7 +1,7 @@
 // app/routes/_marketing+/index.tsx
 import { type MetaFunction } from '@remix-run/node'
-import Discover from '#app/components/landing/discover'
-import Hero from '#app/components/landing/hero'
+import Discover from '#app/components/playground/discover.js'
+import Hero from '#app/components/playground/hero'
 
 
 export const meta: MetaFunction = () => [{ title: 'Creemson' }]

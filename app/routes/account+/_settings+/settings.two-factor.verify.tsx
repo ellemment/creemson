@@ -17,7 +17,7 @@ import {
 } from '@remix-run/react'
 import * as QRCode from 'qrcode'
 import { z } from 'zod'
-import { ErrorList, OTPField } from '#app/components/forms.tsx'
+import { ErrorList, OTPField } from '#app/components/core/forms.tsx'
 import { Icon } from '#app/components/ui/icon.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
 import { isCodeValid } from '#app/routes/_auth+/verify.server.ts'

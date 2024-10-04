@@ -3,8 +3,8 @@
 import { invariantResponse } from '@epic-web/invariant'
 import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { Form, Link, useLoaderData, type MetaFunction } from '@remix-run/react'
-import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
+import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
+import { Spacer } from '#app/components/core/spacer.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import { Icon } from '#app/components/ui/icon.tsx'
 import { checkAdminStatus } from '#app/utils/adminstatus.ts'
@@ -102,10 +102,10 @@ export default function ProfileRoute() {
 export const meta: MetaFunction<typeof loader> = ({ data, params }) => {
     const displayName = data?.user.name ?? params.username
     return [
-        { title: `${displayName} | ellemment` },
+        { title: `${displayName} | Creemson` },
         {
             name: 'description',
-            content: `Profile of ${displayName} on ellemment`,
+            content: `Profile of ${displayName} on Creemson`,
         },
     ]
 }

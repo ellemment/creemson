@@ -1,6 +1,6 @@
 
 // app/routes/account+/beta+/api/$version.ts
-import type { LoaderFunction } from '@remix-run/node';
+import  { type LoaderFunction } from '@remix-run/node';
 import { json } from '@remix-run/node';
 
 

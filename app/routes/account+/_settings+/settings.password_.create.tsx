@@ -10,7 +10,7 @@ import {
   type ActionFunctionArgs,
 } from '@remix-run/node'
 import { Form, Link, useActionData } from '@remix-run/react'
-import { ErrorList, Field } from '#app/components/forms.tsx'
+import { ErrorList, Field } from '#app/components/core/forms.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import { Icon } from '#app/components/ui/icon.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'

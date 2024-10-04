@@ -16,8 +16,8 @@ import {
 import { HoneypotInputs } from 'remix-utils/honeypot/react'
 import { safeRedirect } from 'remix-utils/safe-redirect'
 import { z } from 'zod'
-import { CheckboxField, ErrorList, Field } from '#app/components/forms.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
+import { CheckboxField, ErrorList, Field } from '#app/components/core/forms.tsx'
+import { Spacer } from '#app/components/core/spacer.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
 import { requireAnonymous, sessionKey, signup } from '#app/utils/auth.server.ts'
 import { prisma } from '#app/utils/db.server.ts'
@@ -126,7 +126,7 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export const meta: MetaFunction = () => {
-	return [{ title: 'Setup ellemment Account' }]
+	return [{ title: 'Setup Creemson Account' }]
 }
 
 export default function OnboardingRoute() {

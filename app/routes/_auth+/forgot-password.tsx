@@ -11,8 +11,8 @@ import {
 import { Link, useFetcher } from '@remix-run/react'
 import { HoneypotInputs } from 'remix-utils/honeypot/react'
 import { z } from 'zod'
-import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
-import { ErrorList, Field } from '#app/components/forms.tsx'
+import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
+import { ErrorList, Field } from '#app/components/core/forms.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
 import { prisma } from '#app/utils/db.server.ts'
 import { sendEmail } from '#app/utils/email.server.ts'
@@ -75,7 +75,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
 	const response = await sendEmail({
 		to: user.email,
-		subject: `ellemment Password Reset`,
+		subject: `Creemson Password Reset`,
 		react: (
 			<ForgotPasswordEmail onboardingUrl={verifyUrl.toString()} otp={otp} />
 		),
@@ -102,7 +102,7 @@ function ForgotPasswordEmail({
 		<E.Html lang="en" dir="ltr">
 			<E.Container>
 				<h1>
-					<E.Text>ellemment Password Reset</E.Text>
+					<E.Text>Creemson Password Reset</E.Text>
 				</h1>
 				<p>
 					<E.Text>
@@ -119,7 +119,7 @@ function ForgotPasswordEmail({
 }
 
 export const meta: MetaFunction = () => {
-	return [{ title: 'Password Recovery for ellemment' }]
+	return [{ title: 'Password Recovery for Creemson' }]
 }
 
 export default function ForgotPasswordRoute() {

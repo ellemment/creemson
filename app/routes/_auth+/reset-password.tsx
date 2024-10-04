@@ -9,8 +9,8 @@ import {
 	type MetaFunction,
 } from '@remix-run/node'
 import { Form, useActionData, useLoaderData } from '@remix-run/react'
-import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
-import { ErrorList, Field } from '#app/components/forms.tsx'
+import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
+import { ErrorList, Field } from '#app/components/core/forms.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
 import { requireAnonymous, resetUserPassword } from '#app/utils/auth.server.ts'
 import { useIsPending } from '#app/utils/misc.tsx'
@@ -68,7 +68,7 @@ export async function action({ request }: ActionFunctionArgs) {
 }
 
 export const meta: MetaFunction = () => {
-	return [{ title: 'Reset Password | ellemment' }]
+	return [{ title: 'Reset Password | Creemson' }]
 }
 
 export default function ResetPasswordPage() {

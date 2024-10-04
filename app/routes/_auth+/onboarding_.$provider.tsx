@@ -21,8 +21,8 @@ import {
 } from '@remix-run/react'
 import { safeRedirect } from 'remix-utils/safe-redirect'
 import { z } from 'zod'
-import { CheckboxField, ErrorList, Field } from '#app/components/forms.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
+import { CheckboxField, ErrorList, Field } from '#app/components/core/forms.tsx'
+import { Spacer } from '#app/components/core/spacer.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
 import {
 	authenticator,
@@ -175,7 +175,7 @@ export async function action({ request, params }: ActionFunctionArgs) {
 }
 
 export const meta: MetaFunction = () => {
-	return [{ title: 'Setup ellemment Account' }]
+	return [{ title: 'Setup Creemson Account' }]
 }
 
 export default function OnboardingProviderRoute() {

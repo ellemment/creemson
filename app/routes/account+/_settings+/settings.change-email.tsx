@@ -11,7 +11,7 @@ import {
 } from '@remix-run/node'
 import { Form, useActionData, useLoaderData } from '@remix-run/react'
 import { z } from 'zod'
-import { ErrorList, Field } from '#app/components/forms.tsx'
+import { ErrorList, Field } from '#app/components/core/forms.tsx'
 import { Icon } from '#app/components/ui/icon.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
 import {
@@ -86,7 +86,7 @@ export async function action({ request }: ActionFunctionArgs) {
 
 	const response = await sendEmail({
 		to: submission.value.email,
-		subject: `ellemment Email Change Verification`,
+		subject: `Creemson Email Change Verification`,
 		react: <EmailChangeEmail verifyUrl={verifyUrl.toString()} otp={otp} />,
 	})
 

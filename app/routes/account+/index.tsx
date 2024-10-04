@@ -2,7 +2,7 @@
 
 import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { useLoaderData, type MetaFunction } from '@remix-run/react'
-import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
+import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
 import { CreateButton } from '#app/ellemment-ui/components/account/account-create.js'
 import { AccountPanel } from '#app/ellemment-ui/components/account/account-panel'
 import { AccountSettings } from '#app/ellemment-ui/components/account/account-settings'
@@ -57,10 +57,10 @@ export default function ProfileRoute() {
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
   const displayName = data?.user.name ?? data?.user.username
   return [
-    { title: `${displayName} | ellemment` },
+    { title: `${displayName} | Creemson` },
     {
       name: 'description',
-      content: `Profile of ${displayName} on ellemment`,
+      content: `Profile of ${displayName} on Creemson`,
     },
   ]
 }

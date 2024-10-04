@@ -17,8 +17,8 @@ import {
 } from '@remix-run/react'
 import { formatDistanceToNow } from 'date-fns'
 import { z } from 'zod'
-import { GeneralErrorBoundary } from '#app/components/error-boundary.tsx'
-import { ErrorList } from '#app/components/forms.tsx'
+import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
+import { ErrorList } from '#app/components/core/forms.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import { Icon } from '#app/components/ui/icon.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
@@ -223,7 +223,7 @@ export const meta: MetaFunction<
       ? data.content.content.slice(0, 97) + '...'
       : 'No content'
   return [
-    { title: `${contentTitle} | ${displayName}'s Content | ellemment` },
+    { title: `${contentTitle} | ${displayName}'s Content | Creemson` },
     {
       name: 'description',
       content: contentContentSummary,

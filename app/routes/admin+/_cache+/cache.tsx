@@ -16,9 +16,9 @@ import {
 	useSearchParams,
 	useSubmit,
 } from '@remix-run/react'
-import { GeneralErrorBoundary } from '#app/components/error-boundary'
-import { Field } from '#app/components/forms.tsx'
-import { Spacer } from '#app/components/spacer.tsx'
+import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
+import { Field } from '#app/components/core/forms.tsx'
+import { Spacer } from '#app/components/core/spacer.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import {
 	cache,

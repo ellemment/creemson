@@ -24,22 +24,9 @@ export function AccountNavLinks({ username }: AccountNavLinksProps) {
   return (
     <div className="space-y-8 mt-12">
       <div>
-        <h3 className="px-4 mb-2 text-xs font-semibold text-gray-500 tracking-wider">Application</h3>
-        <nav className="space-y-1">
-          <NavLink to={`/account/beta`} icon="mix">App</NavLink>
-          <NavLink to={`/account/beta`} icon="timer">Activity</NavLink>
-          <NavLink to={`/account/beta`} icon="mixer-vertical">Metrics</NavLink>
-          <NavLink to={`/account/beta`} icon="calendar">History</NavLink>
-        </nav>
-      </div>
-      <div>
         <nav className="mt-12 space-y-1">
-          <h3 className="px-4 mb-2 text-xs font-semibold text-gray-500 tracking-wider">Account</h3>
+          <h3 className="px-4 mb-2 text-xs font-semibold text-gray-500 tracking-wider">Content</h3>
           <NavLink to={`/account/${username}/content/new`} icon="plus">Create</NavLink>
-          <NavLink to="/account" icon="magic-wand">Discover</NavLink>
-          <NavLink to="/account" icon="bookmark">Favorites</NavLink>
-          <NavLink to="/account" icon="dashboard">Library</NavLink>
-          <NavLink to="/account" icon="update">Updates</NavLink>
         </nav>
       </div>
     </div>

@@ -1,9 +1,12 @@
+// #app/utils/markdown/mdslides.server.ts
+
 import type * as Hast from "hast";
 import { LRUCache } from "lru-cache";
 import type * as Mdast from "mdast";
 import invariant from "tiny-invariant";
 import type * as Unist from "unist";
-import { loadPlugins, type UnistNode } from "#app/utils/md/md.server.js";
+import { loadPlugins } from "#app/utils/md/plugins";
+import { type UnistNode as UnistNode } from "#app/utils/markdown/types";
 
 interface SequenceNode extends Unist.Parent {
   type: "sequence";

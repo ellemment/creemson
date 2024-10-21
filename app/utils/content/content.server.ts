@@ -2,7 +2,7 @@ import { DateTime } from "luxon";
 import invariant from "tiny-invariant";
 import { LRUCache } from "lru-cache";
 import yaml from "yaml";
-import { processMarkdown } from "#app/utils/md/md.server.js";
+import { processMarkdown } from "#app/utils/markdown/md.server.js";
 import authorsYamlFileContents from "/data/authors.yml?raw";
 
 const postContentsBySlug = Object.fromEntries(
@@ -34,7 +34,7 @@ const postsCache = new LRUCache<string, BlogPost>({
   },
 });
 
-export async function getBlogPost(slug: string): Promise<BlogPost> {
+export async function getContentElemment(slug: string): Promise<BlogPost> {
   let cached = postsCache.get(slug);
   if (cached) return cached;
   let contents = postContentsBySlug[slug];
@@ -75,13 +75,13 @@ export async function getBlogPost(slug: string): Promise<BlogPost> {
   return post;
 }
 
-export async function getBlogPostListings(): Promise<
+export async function getContentElemmentListings(): Promise<
   Array<MarkdownPostListing>
 > {
   let slugs = Object.keys(postContentsBySlug);
   let listings: Array<MarkdownPostListing & { date: Date }> = [];
   for (let slug of slugs) {
-    let { html, authors, ...listing } = await getBlogPost(slug);
+    let { html, authors, ...listing } = await getContentElemment(slug);
     if (!listing.draft) {
       listings.push({ slug, ...listing });
     }

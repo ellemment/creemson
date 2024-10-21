@@ -1,12 +1,12 @@
 // #app/routes/_blog+/blog._index.tsx
 
-import  { type LoaderFunctionArgs } from "@remix-run/node";
-import { useLoaderData, Link ,type  MetaFunction } from "@remix-run/react";
+import { type LoaderFunctionArgs } from "@remix-run/node";
+import { useLoaderData, Link, type MetaFunction } from "@remix-run/react";
 import * as React from "react";
-import { getBlogPostListings } from "#app/utils/content/content.server";
+import { getContentElemmentListings } from "#app/utils/content/content.server";
 
 export const loader = async (_: LoaderFunctionArgs) => {
-  return { posts: await getBlogPostListings() };
+  return { posts: await getContentElemmentListings() };
 };
 
 export const meta: MetaFunction = () => {
@@ -19,7 +19,7 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function Blog() {
+export default function Docs() {
   const data = useLoaderData<typeof loader>();
   const [latestPost, ...posts] = data.posts;
 
@@ -100,13 +100,6 @@ export default function Blog() {
             </>
           ) : null}
           <div>
-            <h3 className="mb-6 text-xl font-bold lg:text-3xl">
-              Get updates on the latest Remix news
-            </h3>
-            <div className="mb-6" id="newsletter-text">
-              Be the first to learn about new Remix features, community events,
-              and tutorials.
-            </div>
           </div>
         </div>
       </div>

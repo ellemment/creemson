@@ -16,7 +16,6 @@ const Link = React.forwardRef<HTMLAnchorElement, LinkProps>(
     ref,
   ) => {
     if (typeof to === "string" && isAbsoluteUrl(to)) {
-      // eslint-disable-next-line jsx-a11y/anchor-has-content
       return <a {...props} href={to} />;
     }
     return (
@@ -71,7 +70,6 @@ const NavLink = React.forwardRef<HTMLAnchorElement, NavLinkProps>(
         typeof children === "function"
           ? children({ isActive, isPending, isTransitioning })
           : children;
-      // eslint-disable-next-line jsx-a11y/anchor-has-content
       return (
         <a
           {...props}

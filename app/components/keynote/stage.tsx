@@ -80,8 +80,11 @@ export function Actor({
   let actor = useActor();
   let parent = actor.isDefault ? stage : actor;
 
-  let start = type === "progress" ? startProp * parent.length : startProp;
-  let safeStart = start ?? 0;
+  // Provide a default value of 0 if startProp is undefined
+  let start = type === "progress" 
+    ? (startProp ?? 0) * parent.length 
+    : (startProp ?? 0);
+  
   let end = endProp
     ? type === "progress"
       ? endProp * parent.length

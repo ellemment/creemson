@@ -3,7 +3,7 @@ import  { type MetaFunction , useLoaderData } from "@remix-run/react";
 import invariant from "tiny-invariant";
 import { getMeta } from "#app/components/keynote/meta";
 import { ScrollExperience } from "#app/components/keynote/scroll-ux";
-import { getMarkdownTutPage } from "#app/utils/md/mdtut.server";
+import { getMarkdownTutPage } from "#app/utils/markdown/scroll/mdslides.server.js";
 
 
 export const meta: MetaFunction<typeof loader> = (args) => {

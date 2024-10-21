@@ -2,7 +2,7 @@ import cx from "clsx";
 import * as React from "react";
 import tweenFunctions from "tween-functions";
 import { PrimaryButtonLink } from "#app/components/utils/buttons";
-import { type Sequence, type Slide } from "#app/utils/md/mdtut.server";
+import { type Sequence, type Slide } from "#app/utils/markdown/scroll/mdslides.server.js";
 import { BrowserChrome } from "./browser";
 import * as Fakebooks from "./fakebooks";
 import { Actor, ScrollStage, useActor, useStage } from "./stage";

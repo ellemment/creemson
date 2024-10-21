@@ -29,15 +29,15 @@ import {
 	sessionKey,
 	signupWithConnection,
 	requireAnonymous,
-} from '#app/utils/auth.server.ts'
-import { connectionSessionStorage } from '#app/utils/connections.server'
-import { ProviderNameSchema } from '#app/utils/connections.tsx'
-import { prisma } from '#app/utils/db.server.ts'
-import { useIsPending } from '#app/utils/misc.tsx'
-import { authSessionStorage } from '#app/utils/session.server.ts'
-import { redirectWithToast } from '#app/utils/toast.server.ts'
-import { NameSchema, UsernameSchema } from '#app/utils/user-validation.ts'
-import { verifySessionStorage } from '#app/utils/verification.server.ts'
+} from '#app/utils/auth.server.js'
+import { ProviderNameSchema } from '#app/utils/connections.js'
+import { connectionSessionStorage } from '#app/utils/connections.server.js'
+import { prisma } from '#app/utils/db.server.js'
+import { useIsPending } from '#app/utils/misc.js'
+import { authSessionStorage } from '#app/utils/session.server.js'
+import { redirectWithToast } from '#app/utils/toast.server.js'
+import { NameSchema, UsernameSchema } from '#app/utils/user-validation.js'
+import { verifySessionStorage } from '#app/utils/verification.server.js'
 import { onboardingEmailSessionKey } from './onboarding'
 
 export const providerIdKey = 'providerId'

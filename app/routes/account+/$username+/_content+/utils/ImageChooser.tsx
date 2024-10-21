@@ -4,7 +4,7 @@ import { getFieldsetProps, getInputProps , type FieldMetadata } from '@conform-t
 import React, { useState } from 'react'
 import { ErrorList } from '#app/components/core/forms'
 import { Icon } from '#app/components/ui/icon'
-import { cn, getContentImgSrc } from '#app/utils/misc'
+import { cn, getContentImgSrc } from '#app/utils/misc.js'
 import  { type ImageFieldset } from './contentEditorSchema'
 
 export function ImageChooser({ meta }: { meta: FieldMetadata<ImageFieldset> }) {

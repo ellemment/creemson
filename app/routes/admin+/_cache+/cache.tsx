@@ -25,14 +25,14 @@ import {
 	getAllCacheKeys,
 	lruCache,
 	searchCacheKeys,
-} from '#app/utils/cache.server.ts'
+} from '#app/utils/cache.server.js'
 import {
 	ensureInstance,
 	getAllInstances,
 	getInstanceInfo,
-} from '#app/utils/litefs.server.ts'
-import { useDebounce, useDoubleCheck } from '#app/utils/misc.tsx'
-import { requireUserWithRole } from '#app/utils/permissions.server.ts'
+} from '#app/utils/litefs.server.js'
+import { useDebounce, useDoubleCheck } from '#app/utils/misc.js'
+import { requireUserWithRole } from '#app/utils/permissions.server.js'
 
 export const handle: SEOHandle = {
 	getSitemapEntries: () => null,

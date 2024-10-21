@@ -6,8 +6,8 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { Outlet } from '@remix-run/react'
 import { z } from 'zod'
 import { Icon } from '#app/components/ui/icon.tsx'
-import { requireUserId } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
+import { requireUserId } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
 
 
 export const BreadcrumbHandle = z.object({ breadcrumb: z.any() })

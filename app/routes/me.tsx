@@ -1,8 +1,8 @@
 // app/routes/me.tsx
 
 import { redirect, type LoaderFunctionArgs } from '@remix-run/node'
-import { requireUserId, logout } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
+import { requireUserId, logout } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
 
 export async function loader({ request }: LoaderFunctionArgs) {
 	const userId = await requireUserId(request)

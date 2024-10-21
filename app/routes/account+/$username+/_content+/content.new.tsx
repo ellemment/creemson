@@ -2,8 +2,8 @@
 
 import { json, redirect, type LoaderFunctionArgs } from '@remix-run/node'
 import { useLoaderData } from '@remix-run/react'
-import { checkAdminStatus, requireAdminAccess } from '#app/utils/adminstatus.ts'
-import { prisma } from '#app/utils/db.server.ts'
+import { checkAdminStatus, requireAdminAccess } from '#app/utils/adminstatus.js'
+import { prisma } from '#app/utils/db.server.js'
 import { ContentEditor } from './__content-editor.tsx'
 
 export { action } from './__content-editor.server.tsx'

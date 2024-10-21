@@ -2,7 +2,7 @@
 
 import { useFetcher } from '@remix-run/react'
 import { useCallback, useEffect, useState } from 'react'
-import { useDebounce } from '#app/utils/misc'
+import { useDebounce } from '#app/utils/misc.js'
 
 type AutoSaveResult = {
   draftSaved: boolean

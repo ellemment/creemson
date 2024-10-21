@@ -5,9 +5,9 @@ import { AnimatePresence, motion } from 'framer-motion';
 import { useRef, useState } from 'react';
 
 const navItems = [
-  { label: 'Discover', href: '/#news' },
-  { label: 'Design', href: '/#design' },
-  { label: 'Develop', href: '/#develop' },
+  { label: 'News', href: '/#news' },
+  { label: 'Documentation', href: '/#docs' },
+  { label: 'Changelog', href: '/#about' },
   { label: 'Application', href: '/account/beta' },
   { label: 'Account', href: '/account/settings' },
 ] as const;

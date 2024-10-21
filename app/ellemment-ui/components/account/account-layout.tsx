@@ -1,5 +1,5 @@
 import React from 'react'
-import { type Theme } from '#app/utils/theme.server.ts'
+import { type Theme } from '#app/utils/theme.server.js'
 import {
   Sidebar,
   SidebarHeader,

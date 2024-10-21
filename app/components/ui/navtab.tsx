@@ -4,7 +4,7 @@
 import { AnimatePresence, MotionConfig, motion } from "framer-motion"
 import { type ReactNode, useMemo, useState } from "react"
 import useMeasure from "react-use-measure"
-import { cn } from '#app/utils/misc.tsx'
+import { cn } from '#app/utils/misc.js'
 
 type Tab = {
   id: number

@@ -1,6 +1,6 @@
 import 'dotenv/config'
 import './db-setup.ts'
-import '#app/utils/env.server.ts'
+import '#app/utils/env.server.js'
 // we need these to be imported first 👆
 
 import { cleanup } from '@testing-library/react'

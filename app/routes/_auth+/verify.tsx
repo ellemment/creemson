@@ -9,8 +9,8 @@ import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
 import { ErrorList, OTPField } from '#app/components/core/forms.tsx'
 import { Spacer } from '#app/components/core/spacer.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
-import { checkHoneypot } from '#app/utils/honeypot.server.ts'
-import { useIsPending } from '#app/utils/misc.tsx'
+import { checkHoneypot } from '#app/utils/honeypot.server.js'
+import { useIsPending } from '#app/utils/misc.js'
 import { validateRequest } from './verify.server.ts'
 
 export const handle: SEOHandle = {

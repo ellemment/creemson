@@ -1,7 +1,7 @@
 // app/components/creemson/processor-section.tsx
 
 import React, { useState, useEffect } from 'react';
-import { getColumns, uploadFile } from '#app/utils/creemson/creemson-api';
+import { getColumns, uploadFile } from '#app/utils/creemson/creemson-api.js';
 
 interface ProcessorSectionProps {
   onProcess: (filename: string, selectedColumns: number[]) => void;

@@ -13,14 +13,14 @@ import { z } from 'zod'
 import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
 import { CheckboxField, ErrorList, Field } from '#app/components/core/forms.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
-import { login, requireAnonymous } from '#app/utils/auth.server.ts'
+import { login, requireAnonymous } from '#app/utils/auth.server.js'
 import {
 	ProviderConnectionForm,
 	providerNames,
-} from '#app/utils/connections.tsx'
-import { checkHoneypot } from '#app/utils/honeypot.server.ts'
-import { useIsPending } from '#app/utils/misc.tsx'
-import { PasswordSchema, UsernameSchema } from '#app/utils/user-validation.ts'
+} from '#app/utils/connections.js'
+import { checkHoneypot } from '#app/utils/honeypot.server.js'
+import { useIsPending } from '#app/utils/misc.js'
+import { PasswordSchema, UsernameSchema } from '#app/utils/user-validation.js'
 import { handleNewSession } from './login.server.ts'
 
 export const handle: SEOHandle = {

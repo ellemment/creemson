@@ -24,12 +24,12 @@ interface OutputSectionProps {
 export function OutputSection({ summary, outputData }: OutputSectionProps) {
   const [processedData, setProcessedData] = useState<string[][]>([]);
   const [headers, setHeaders] = useState<string[]>([]);
-
+ 
   const fetchProcessedData = useCallback(async (filename: string) => {
     try {
       const response = await fetch(`http://localhost:8000/download/${filename}`);
       const text = await response.text();
-      const rows = text.split('\n').map(row => row.split(','));
+      const rows = text.split('\n').map((row: string) => row.split(','));
       const headerRow = rows[0];
       
       if (!headerRow) {
@@ -37,14 +37,14 @@ export function OutputSection({ summary, outputData }: OutputSectionProps) {
         return;
       }
   
-      const data = rows.slice(1).filter(row => row.some(cell => cell.trim() !== ''));
+      const data = rows.slice(1).filter((row: string[]) => row.some((cell: string) => cell.trim() !== ''));
       
-      const processedHeaders = headerRow.filter((_, index) => 
-        data.some(row => row[index] && row[index].trim() !== '')
+      const processedHeaders = headerRow.filter((_: string, index: number) => 
+        data.some((row: string[]) => row[index] && row[index].trim() !== '')
       );
       
-      const processedData = data.map(row => 
-        processedHeaders.map(header => row[headerRow.indexOf(header)] || '')
+      const processedData = data.map((row: string[]) => 
+        processedHeaders.map((header: string) => row[headerRow.indexOf(header)] || '')
       );
   
       setHeaders(processedHeaders);

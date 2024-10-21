@@ -7,10 +7,10 @@ import {
 	requireRecentVerification,
 	type VerifyFunctionArgs,
 } from '#app/routes/_auth+/verify.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
-import { sendEmail } from '#app/utils/email.server.ts'
-import { redirectWithToast } from '#app/utils/toast.server.ts'
-import { verifySessionStorage } from '#app/utils/verification.server.ts'
+import { prisma } from '#app/utils/db.server.js'
+import { sendEmail } from '#app/utils/email.server.js'
+import { redirectWithToast } from '#app/utils/toast.server.js'
+import { verifySessionStorage } from '#app/utils/verification.server.js'
 import { newEmailAddressSessionKey } from './settings.change-email'
 
 export async function handleVerification({

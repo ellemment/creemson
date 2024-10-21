@@ -7,9 +7,9 @@ import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
 import { Spacer } from '#app/components/core/spacer.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import { Icon } from '#app/components/ui/icon.tsx'
-import { checkAdminStatus } from '#app/utils/adminstatus.ts'
-import { prisma } from '#app/utils/db.server.ts'
-import { getUserImgSrc } from '#app/utils/misc.tsx'
+import { checkAdminStatus } from '#app/utils/adminstatus.js'
+import { prisma } from '#app/utils/db.server.js'
+import { getUserImgSrc } from '#app/utils/misc.js'
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
     const { isAdmin, user: loggedInUser } = await checkAdminStatus(request)

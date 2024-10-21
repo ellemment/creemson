@@ -18,12 +18,12 @@ import {
 	prepareVerification,
 	requireRecentVerification,
 } from '#app/routes/_auth+/verify.server.ts'
-import { requireUserId } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
-import { sendEmail } from '#app/utils/email.server.ts'
-import { useIsPending } from '#app/utils/misc.tsx'
-import { EmailSchema } from '#app/utils/user-validation.ts'
-import { verifySessionStorage } from '#app/utils/verification.server.ts'
+import { requireUserId } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
+import { sendEmail } from '#app/utils/email.server.js'
+import { useIsPending } from '#app/utils/misc.js'
+import { EmailSchema } from '#app/utils/user-validation.js'
+import { verifySessionStorage } from '#app/utils/verification.server.js'
 import { EmailChangeEmail } from './settings.change-email.server.tsx'
 import { type BreadcrumbHandle } from './settings.tsx'
 

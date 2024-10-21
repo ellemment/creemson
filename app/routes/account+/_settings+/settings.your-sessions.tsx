@@ -6,10 +6,10 @@ import { json, type LoaderFunctionArgs, type ActionFunctionArgs } from '@remix-r
 import { useFetcher, useLoaderData } from '@remix-run/react'
 import { Icon } from '#app/components/ui/icon.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
-import { requireUserId, sessionKey } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
-import { useDoubleCheck } from '#app/utils/misc.tsx'
-import { authSessionStorage } from '#app/utils/session.server.ts'
+import { requireUserId, sessionKey } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
+import { useDoubleCheck } from '#app/utils/misc.js'
+import { authSessionStorage } from '#app/utils/session.server.js'
 import { type BreadcrumbHandle } from './settings.tsx'
 
 export const handle: BreadcrumbHandle & SEOHandle = {

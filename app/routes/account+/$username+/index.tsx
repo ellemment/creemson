@@ -4,10 +4,10 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { Form, Link, useLoaderData, type MetaFunction } from '@remix-run/react'
 import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
 import { Spacer } from '#app/components/core/spacer.tsx'
-import { checkAdminStatus } from '#app/utils/adminstatus.ts'
-import { requireUserId } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
-import { getUserImgSrc } from '#app/utils/misc.tsx'
+import { checkAdminStatus } from '#app/utils/adminstatus.js'
+import { requireUserId } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
+import { getUserImgSrc } from '#app/utils/misc.js'
 
 
 export async function loader({ request }: LoaderFunctionArgs) {

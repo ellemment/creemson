@@ -17,12 +17,12 @@ import { StatusButton } from '#app/components/ui/status-button.tsx'
 import {
 	ProviderConnectionForm,
 	providerNames,
-} from '#app/utils/connections.tsx'
-import { prisma } from '#app/utils/db.server.ts'
-import { sendEmail } from '#app/utils/email.server.ts'
-import { checkHoneypot } from '#app/utils/honeypot.server.ts'
-import { useIsPending } from '#app/utils/misc.tsx'
-import { EmailSchema } from '#app/utils/user-validation.ts'
+} from '#app/utils/connections.js'
+import { prisma } from '#app/utils/db.server.js'
+import { sendEmail } from '#app/utils/email.server.js'
+import { checkHoneypot } from '#app/utils/honeypot.server.js'
+import { useIsPending } from '#app/utils/misc.js'
+import { EmailSchema } from '#app/utils/user-validation.js'
 import { prepareVerification } from './verify.server.ts'
 
 export const handle: SEOHandle = {

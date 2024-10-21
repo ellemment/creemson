@@ -2,15 +2,15 @@
 
 import { invariant } from '@epic-web/invariant'
 import { faker } from '@faker-js/faker'
-import { prisma } from '#app/utils/db.server.ts'
+import { prisma } from '#app/utils/db.server.js'
 import {
 	normalizeEmail,
 	normalizeUsername,
-} from '#app/utils/providers/provider'
+} from '#app/utils/providers/provider.js'
 import {
 	USERNAME_MAX_LENGTH,
 	USERNAME_MIN_LENGTH,
-} from '#app/utils/user-validation'
+} from '#app/utils/user-validation.js'
 import { readEmail } from '#tests/mocks/utils.ts'
 import { createUser, expect, test as base } from '#tests/playwright-utils.ts'
 

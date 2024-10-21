@@ -4,7 +4,7 @@ import { Icon } from '#app/components/ui/icon.tsx'
 import { Input } from '#app/components/ui/input.tsx'
 import { Label } from '#app/components/ui/label.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
-import { useDebounce, useIsPending } from '#app/utils/misc.tsx'
+import { useDebounce, useIsPending } from '#app/utils/misc.js'
 
 export function SearchBar({
 	status,

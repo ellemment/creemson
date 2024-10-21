@@ -24,13 +24,13 @@ import { ErrorList } from '#app/components/core/forms.tsx'
 import { Button } from '#app/components/ui/button.tsx'
 import { Icon } from '#app/components/ui/icon.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
-import { requireUserId } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
+import { requireUserId } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
 import {
 	getUserImgSrc,
 	useDoubleCheck,
 	useIsPending,
-} from '#app/utils/misc.tsx'
+} from '#app/utils/misc.js'
 import { type BreadcrumbHandle } from './settings.tsx'
 
 export const handle: BreadcrumbHandle & SEOHandle = {

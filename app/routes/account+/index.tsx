@@ -6,9 +6,9 @@ import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
 import { CreateButton } from '#app/ellemment-ui/components/account/account-create.js'
 import { AccountPanel } from '#app/ellemment-ui/components/account/account-panel'
 import { AccountSettings } from '#app/ellemment-ui/components/account/account-settings'
-import { checkAdminStatus } from '#app/utils/adminstatus.ts'
-import { requireUserId } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
+import { checkAdminStatus } from '#app/utils/adminstatus.js'
+import { requireUserId } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const userId = await requireUserId(request, {

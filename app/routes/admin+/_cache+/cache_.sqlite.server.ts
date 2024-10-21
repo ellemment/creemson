@@ -2,11 +2,11 @@
 
 import { json, redirect, type ActionFunctionArgs } from '@remix-run/node'
 import { z } from 'zod'
-import { cache } from '#app/utils/cache.server.ts'
+import { cache } from '#app/utils/cache.server.js'
 import {
 	getInstanceInfo,
 	getInternalInstanceDomain,
-} from '#app/utils/litefs.server'
+} from '#app/utils/litefs.server.js'
 
 export async function updatePrimaryCacheValue({
 	key,

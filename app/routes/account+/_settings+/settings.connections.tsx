@@ -19,18 +19,18 @@ import {
 	TooltipProvider,
 	TooltipTrigger,
 } from '#app/components/ui/tooltip.tsx'
-import { requireUserId } from '#app/utils/auth.server.ts'
-import { resolveConnectionData } from '#app/utils/connections.server.ts'
+import { requireUserId } from '#app/utils/auth.server.js'
 import {
 	ProviderConnectionForm,
 	type ProviderName,
 	ProviderNameSchema,
 	providerIcons,
 	providerNames,
-} from '#app/utils/connections.tsx'
-import { prisma } from '#app/utils/db.server.ts'
-import { makeTimings } from '#app/utils/timing.server.ts'
-import { createToastHeaders } from '#app/utils/toast.server.ts'
+} from '#app/utils/connections.js'
+import { resolveConnectionData } from '#app/utils/connections.server.js'
+import { prisma } from '#app/utils/db.server.js'
+import { makeTimings } from '#app/utils/timing.server.js'
+import { createToastHeaders } from '#app/utils/toast.server.js'
 import { type BreadcrumbHandle } from './settings.tsx'
 
 export const handle: BreadcrumbHandle & SEOHandle = {

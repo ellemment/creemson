@@ -1,10 +1,10 @@
 import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { Outlet, useLoaderData } from '@remix-run/react';
 import { AccountLayout } from '#app/ellemment-ui/components/account/account-layout';
-import { checkAdminStatus } from '#app/utils/adminstatus.ts'
-import { requireUserId } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
-import { getTheme } from '#app/utils/theme.server.ts'
+import { checkAdminStatus } from '#app/utils/adminstatus.js'
+import { requireUserId } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
+import { getTheme } from '#app/utils/theme.server.js'
 
 export async function loader({ request }: LoaderFunctionArgs) {
   const userId = await requireUserId(request)

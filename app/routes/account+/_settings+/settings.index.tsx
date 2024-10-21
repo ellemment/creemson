@@ -5,8 +5,8 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { Link, useLoaderData, Form } from '@remix-run/react'
 import { Button } from '#app/components/ui/button.tsx'
 import { Icon } from '#app/components/ui/icon.tsx'
-import { requireUserId } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
+import { requireUserId } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
 import { twoFAVerificationType } from './settings.two-factor.tsx'
 
 export const handle: SEOHandle = {

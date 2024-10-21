@@ -5,7 +5,7 @@ import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { Link } from '@remix-run/react'
 import { Button } from '#app/components/ui/button.tsx'
 import { Icon } from '#app/components/ui/icon.tsx'
-import { requireUserId } from '#app/utils/auth.server.ts'
+import { requireUserId } from '#app/utils/auth.server.js'
 import { type BreadcrumbHandle } from './settings.tsx'
 
 export const handle: BreadcrumbHandle & SEOHandle = {

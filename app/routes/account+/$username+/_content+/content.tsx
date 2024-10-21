@@ -4,8 +4,8 @@ import { invariantResponse } from '@epic-web/invariant'
 import { json, type LoaderFunctionArgs } from '@remix-run/node'
 import { Outlet } from '@remix-run/react'
 import { GeneralErrorBoundary } from '#app/components/core/error-boundary.js'
-import { checkAdminStatus, checkOwnerStatus } from '#app/utils/adminstatus.ts'
-import { prisma } from '#app/utils/db.server.ts'
+import { checkAdminStatus, checkOwnerStatus } from '#app/utils/adminstatus.js'
+import { prisma } from '#app/utils/db.server.js'
 
 export async function loader({ params, request }: LoaderFunctionArgs) {
   await checkAdminStatus(request)

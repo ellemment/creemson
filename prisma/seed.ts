@@ -1,7 +1,7 @@
 // prisma/seed.ts
 import { promiseHash } from 'remix-utils/promise'
-import { prisma } from '#app/utils/db.server.ts'
-import { MOCK_CODE_GITHUB, MOCK_CODE_GOOGLE } from '#app/utils/providers/constants'
+import { prisma } from '#app/utils/db.server.js'
+import { MOCK_CODE_GITHUB, MOCK_CODE_GOOGLE } from '#app/utils/providers/constants.js'
 import {
   cleanupDb,
   createPassword,

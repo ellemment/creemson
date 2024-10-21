@@ -1,7 +1,7 @@
 // creemson/tests/e2e/2fa.test.ts
 
 import { faker } from '@faker-js/faker'
-import { generateTOTP } from '#app/utils/totp.server.ts'
+import { generateTOTP } from '#app/utils/totp.server.js'
 import { expect, test } from '#tests/playwright-utils.ts'
 
 test('Users can add 2FA to their account and use it when logging in', async ({

@@ -19,11 +19,11 @@ import {
 	getPasswordHash,
 	requireUserId,
 	verifyUserPassword,
-} from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
-import { useIsPending } from '#app/utils/misc.tsx'
-import { redirectWithToast } from '#app/utils/toast.server.ts'
-import { PasswordSchema } from '#app/utils/user-validation.ts'
+} from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
+import { useIsPending } from '#app/utils/misc.js'
+import { redirectWithToast } from '#app/utils/toast.server.js'
+import { PasswordSchema } from '#app/utils/user-validation.js'
 import { type BreadcrumbHandle } from './settings.tsx'
 
 export const handle: BreadcrumbHandle & SEOHandle = {

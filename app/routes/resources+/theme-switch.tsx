@@ -10,9 +10,9 @@ import { useState } from 'react'
 import { ServerOnly } from 'remix-utils/server-only'
 import { z } from 'zod'
 import { Icon } from '#app/components/ui/icon.tsx'
-import { useHints } from '#app/utils/client-hints.tsx'
-import { useRequestInfo } from '#app/utils/request-info.ts'
-import { type Theme, setTheme } from '#app/utils/theme.server.ts'
+import { useHints } from '#app/utils/client-hints.js'
+import { useRequestInfo } from '#app/utils/request-info.js'
+import { type Theme, setTheme } from '#app/utils/theme.server.js'
 
 const ThemeFormSchema = z.object({
   theme: z.enum(['light', 'dark']),

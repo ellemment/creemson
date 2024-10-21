@@ -19,18 +19,18 @@ import { z } from 'zod'
 import { CheckboxField, ErrorList, Field } from '#app/components/core/forms.tsx'
 import { Spacer } from '#app/components/core/spacer.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
-import { requireAnonymous, sessionKey, signup } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
-import { checkHoneypot } from '#app/utils/honeypot.server.ts'
-import { useIsPending } from '#app/utils/misc.tsx'
-import { authSessionStorage } from '#app/utils/session.server.ts'
-import { redirectWithToast } from '#app/utils/toast.server.ts'
+import { requireAnonymous, sessionKey, signup } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
+import { checkHoneypot } from '#app/utils/honeypot.server.js'
+import { useIsPending } from '#app/utils/misc.js'
+import { authSessionStorage } from '#app/utils/session.server.js'
+import { redirectWithToast } from '#app/utils/toast.server.js'
 import {
 	NameSchema,
 	PasswordAndConfirmPasswordSchema,
 	UsernameSchema,
-} from '#app/utils/user-validation.ts'
-import { verifySessionStorage } from '#app/utils/verification.server.ts'
+} from '#app/utils/user-validation.js'
+import { verifySessionStorage } from '#app/utils/verification.server.js'
 
 export const onboardingEmailSessionKey = 'onboardingEmail'
 

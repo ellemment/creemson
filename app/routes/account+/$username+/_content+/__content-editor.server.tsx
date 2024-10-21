@@ -9,8 +9,8 @@ import {
   redirect,
   type ActionFunctionArgs,
 } from '@remix-run/node'
-import { checkAdminStatus, checkOwnerStatus } from '#app/utils/adminstatus.ts'
-import { prisma } from '#app/utils/db.server.ts'
+import { checkAdminStatus, checkOwnerStatus } from '#app/utils/adminstatus.js'
+import { prisma } from '#app/utils/db.server.js'
 import {
   MAX_UPLOAD_SIZE,
   ContentEditorSchema,

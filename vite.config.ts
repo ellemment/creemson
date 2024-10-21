@@ -2,8 +2,10 @@ import { vitePlugin as remix } from '@remix-run/dev'
 import { sentryVitePlugin } from '@sentry/vite-plugin'
 import { glob } from 'glob'
 import { flatRoutes } from 'remix-flat-routes'
-import { defineConfig } from 'vite'
+import { defineConfig } from "vite";
 import { envOnlyMacros } from 'vite-env-only'
+import arraybuffer from "vite-plugin-arraybuffer"
+import tsconfigPaths from "vite-tsconfig-paths"
 
 const MODE = process.env.NODE_ENV
 
@@ -29,6 +31,8 @@ export default defineConfig({
 		},
 	},
 	plugins: [
+		tsconfigPaths(),
+		arraybuffer(),
 		envOnlyMacros(),
 		remix({
 			ignoredRouteFiles: ['**/*'],

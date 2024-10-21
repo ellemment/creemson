@@ -1,7 +1,7 @@
 // app/components/ui/dynamic-island.tsx
 import { motion, AnimatePresence } from 'framer-motion';
 import React, { useState } from 'react';
-import { cn } from '#app/utils/misc';
+import { cn } from '#app/utils/misc.js';
 
 interface DynamicIslandProps {
   trigger: React.ReactNode;

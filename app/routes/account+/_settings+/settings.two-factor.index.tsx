@@ -10,9 +10,9 @@ import {
 import { Link, useFetcher, useLoaderData } from '@remix-run/react'
 import { Icon } from '#app/components/ui/icon.tsx'
 import { StatusButton } from '#app/components/ui/status-button.tsx'
-import { requireUserId } from '#app/utils/auth.server.ts'
-import { prisma } from '#app/utils/db.server.ts'
-import { generateTOTP } from '#app/utils/totp.server.ts'
+import { requireUserId } from '#app/utils/auth.server.js'
+import { prisma } from '#app/utils/db.server.js'
+import { generateTOTP } from '#app/utils/totp.server.js'
 import { twoFAVerificationType } from './settings.two-factor.tsx'
 import { twoFAVerifyVerificationType } from './settings.two-factor.verify.tsx'
 

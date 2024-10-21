@@ -1,8 +1,8 @@
 // creemson/tests/utils.ts
 
 import * as setCookieParser from 'set-cookie-parser'
-import { sessionKey } from '#app/utils/auth.server.ts'
-import { authSessionStorage } from '#app/utils/session.server.ts'
+import { sessionKey } from '#app/utils/auth.server.js'
+import { authSessionStorage } from '#app/utils/session.server.js'
 
 export const BASE_URL = 'https://www.epicstack.dev'
 

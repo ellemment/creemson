@@ -1,16 +1,14 @@
 // #app/routes/_blog+/blog.$slug.tsx
 
-import  { type LoaderFunctionArgs, LinksFunction } from "@remix-run/node";
+import  { type LoaderFunctionArgs, type LinksFunction } from "@remix-run/node";
 import { useLoaderData ,type  MetaFunction } from "@remix-run/react";
 import cx from "clsx";
 import { useRef } from "react";
 import invariant from "tiny-invariant";
 
 import { useDelegatedReactRouterLinks } from "#app/components/utils/delegate-links";
-import { getBlogPost } from "#app/utils/content/content.server";
+import { getContentElemment } from "#app/utils/content/content.server";
 import mdStyles from "#app/utils/markdown/styles/md.css?url";
-
-
 
 export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   let { slug } = params;
@@ -18,7 +16,7 @@ export const loader = async ({ params, request }: LoaderFunctionArgs) => {
   let requestUrl = new URL(request.url);
   let siteUrl = requestUrl.protocol + "//" + requestUrl.host;
 
-  let post = await getBlogPost(slug);
+  let post = await getContentElemment(slug);
 
   return { siteUrl, post };
 };
@@ -74,7 +72,7 @@ export const meta: MetaFunction<typeof loader> = (args) => {
   ];
 };
 
-export default function BlogPost() {
+export default function DocsPost() {
   let { post } = useLoaderData<typeof loader>();
   let mdRef = useRef<HTMLDivElement>(null);
   useDelegatedReactRouterLinks(mdRef);

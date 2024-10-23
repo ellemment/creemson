@@ -1,4 +1,4 @@
-// app/components/beta/results-detailed.tsx
+// app/components/creemson/results-detailed.tsx
 
 import React from 'react';
 

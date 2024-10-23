@@ -17,8 +17,10 @@ import {
 	useLocation,
 } from '@remix-run/react'
 import { withSentry } from '@sentry/remix'
+import clsx from 'clsx'
 import { HoneypotProvider } from 'remix-utils/honeypot/react'
 import { GlobalHeader } from '#app/ellemment-ui/components/navigation/headers/header-global'
+import { type DonHandle } from '#app/types.ts'
 import { GeneralErrorBoundary } from './components/core/error-boundary.tsx'
 import { EpicProgress } from './components/core/progress-bar.tsx'
 import { useToast } from './components/core/toaster.tsx'
@@ -33,10 +35,16 @@ import { getEnv } from './utils/env.server.ts'
 import { honeypot } from './utils/honeypot.server.ts'
 import { combineHeaders, getDomainUrl } from './utils/misc.tsx'
 import { useNonce } from './utils/nonce-provider.ts'
-import { type Theme, getTheme } from './utils/theme.server.ts'
+import { getTheme } from './utils/theme.server.ts'
 import { makeTimings, time } from './utils/timing.server.ts'
 import { getToast } from './utils/toast.server.ts'
 
+
+type Theme = 'light' | 'dark'
+
+export const handle: DonHandle & { id: string } = {
+	id: 'root',
+}
 
 
 export const links: LinksFunction = () => {
@@ -61,9 +69,14 @@ export const links: LinksFunction = () => {
 }
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
+	const requestInfo = data?.requestInfo
 	return [
 		{ title: data ? 'Creemson' : 'Error | Creemson' },
 		{ name: 'description', content: `Your own captain's log` },
+		{
+			'theme-color':
+				requestInfo?.userPrefs.theme === 'dark' ? '#1F2028' : '#FFF',
+		},
 	]
 }
 
@@ -122,6 +135,9 @@ export async function loader({ request }: LoaderFunctionArgs) {
 			ENV: getEnv(),
 			toast,
 			honeyProps,
+			userPrefs: {
+				theme: getTheme(request),
+			},
 		},
 		{
 			headers: combineHeaders(
@@ -132,12 +148,15 @@ export async function loader({ request }: LoaderFunctionArgs) {
 	)
 }
 
+export type RootLoaderType = typeof loader
+
 export const headers: HeadersFunction = ({ loaderHeaders }) => {
 	const headers = {
 		'Server-Timing': loaderHeaders.get('Server-Timing') ?? '',
 	}
 	return headers
 }
+
 
 function Document({
 	children,
@@ -153,7 +172,7 @@ function Document({
 	allowIndexing?: boolean
 }) {
 	return (
-		<html lang="en" className={`${theme} h-full overflow-x-hidden`}>
+		<html lang="en" className={clsx(theme, 'h-full overflow-x-hidden')}>
 			<head>
 				<ClientHintCheck nonce={nonce} />
 				<Meta />
@@ -164,7 +183,7 @@ function Document({
 				)}
 				<Links />
 			</head>
-			<body className="bg-neutral-100 dark:bg-zinc-950 text-foreground">
+			<body className="bg-neutral-100 dark:bg-background text-primary transition duration-500">
 				{children}
 				<script
 					nonce={nonce}
@@ -192,20 +211,18 @@ function App() {
 	return (
 		<Document
 			nonce={nonce}
-			theme={theme === 'light' ? 'light' : 'dark'}
+			theme={theme}
 			allowIndexing={allowIndexing}
 			env={data.ENV}
 		>
 			<div className="flex h-screen flex-col justify-between">
 				{showHeader && (
-					<GlobalHeader userPreference={data.requestInfo.userPrefs.theme} />
+					<GlobalHeader />
 				)}
 
 				<div className="flex-1">
 					<Outlet />
 				</div>
-
-
 
 				<footer className="">
 					{/* Footer content if needed */}
@@ -216,6 +233,8 @@ function App() {
 		</Document>
 	);
 }
+
+
 
 function AppWithProviders() {
 	const data = useLoaderData<typeof loader>()

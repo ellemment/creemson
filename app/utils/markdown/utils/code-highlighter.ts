@@ -23,7 +23,7 @@ export async function getHighlighterInstance(): Promise<Highlighter> {
 export function getSupportedLanguages(): ShikiLang[] {
   return [
     "js", "json", "jsx", "ts", "tsx", "markdown", "shellscript",
-    "html", "css", "diff", "mdx", "prisma",
+    "html", "css", "diff", "mdx", "prisma", "python", "yaml", "json5", 
   ];
 }
 

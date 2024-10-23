@@ -1,4 +1,4 @@
-// app/components/beta/input-section.tsx
+// app/components/creemson/input-section.tsx
 
 import React from 'react';
 

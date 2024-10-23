@@ -1,4 +1,4 @@
-// #app/routes/_blog+/blog.$slug.tsx
+// #app/routes/_docs+/docs.$slug.tsx
 
 import  { type LoaderFunctionArgs, type LinksFunction } from "@remix-run/node";
 import { useLoaderData ,type  MetaFunction } from "@remix-run/react";

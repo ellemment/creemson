@@ -13,7 +13,7 @@ export function InputSection({ onFileChange }: InputSectionProps) {
   };
 
   return (
-    <div className="p-6 border rounded-lg shadow-sm">
+    <div className="p-6  shadow-sm">
       <h2 className="text-2xl font-semibold mb-4">Input</h2>
       <input
         type="file"

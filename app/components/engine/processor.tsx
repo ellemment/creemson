@@ -1,7 +1,6 @@
-// app/components/engine/processor.tsx
-
 import React from 'react';
 import { useProcessorLogic } from '#app/utils/beta/use-processor-logic';
+import ProcessorLogs from './log';
 
 interface ProcessorSectionProps {
   onProcess: (filename: string, selectedColumns: number[]) => void;
@@ -58,11 +57,12 @@ export function ProcessorSection({
       >
         {isProcessing ? 'Processing...' : 'Process File'}
       </button>
-      <div className="mt-4 h-64 overflow-y-auto p-4 rounded border">
-        {logs.map((log, index) => (
-          <div key={index} className="text-sm">{log}</div>
-        ))}
-      </div>
+      
+      {isProcessing && (
+        <div className="mt-4 bg-background rounded-lg p-4 border">
+          <ProcessorLogs logs={logs} />
+        </div>
+      )}
     </div>
   );
 }

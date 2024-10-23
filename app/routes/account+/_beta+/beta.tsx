@@ -1,144 +1,144 @@
-// app/routes/account+/_beta+/beta.tsx
 import { json, type LoaderFunction } from '@remix-run/node';
 import { useLoaderData } from '@remix-run/react';
-import React, { useState, useEffect } from 'react';
-import { ApiStatusAlert } from '#app/components/creemson/common/api-status-alert';
-import { ProgressStepper } from '#app/components/creemson/common/progress-stepper';
-import { InputSection } from '#app/components/creemson/input-section';
-import { OutputSection } from '#app/components/creemson/output-section';
-import { ProcessorSection } from '#app/components/creemson/processor-section';
-import { processFile } from '#app/utils/creemson/creemson-api.js';
+import { FileText, Cog, FileOutput, GalleryVerticalEnd } from 'lucide-react';
+import React from 'react';
 
-interface LoaderData {
-  apiAccessible: boolean;
-}
+import { ApiStatusAlert } from '#app/components/engine/api-status';
+import { InputSection } from '#app/components/engine/input';
+import { OutputSection } from '#app/components/engine/output';
+import { ProcessorSection } from '#app/components/engine/processor';
+import { ProgressStepper } from '#app/components/engine/progress';
+import {
+  Sidebar,
+  SidebarContent,
+  SidebarHeader,
+  SidebarInset,
+  SidebarMenu,
+  SidebarMenuButton,
+  SidebarMenuItem,
+  SidebarProvider,
+  SidebarTrigger,
+} from '#app/components/ui/sidebar';
+import { type LoaderData } from '#app/utils/beta/types';
+import { useFileProcessing } from '#app/utils/beta/use-file-processing';
 
 export const loader: LoaderFunction = async () => {
-  console.log('Loader function called');
-  // You can add a check here to see if the API is accessible
   return json({ apiAccessible: true });
 };
 
 export default function AppIndex() {
-  console.log('AppIndex component rendered');
-
   const { apiAccessible } = useLoaderData<LoaderData>();
-  console.log('API Accessible:', apiAccessible);
+  const {
+    currentStep,
+    setCurrentStep,
+    summary,
+    file,
+    isProcessing,
+    logs,
+    outputData,
+    handleFileChange: originalHandleFileChange,
+    handleProcess,
+  } = useFileProcessing();
 
-  const [currentStep, setCurrentStep] = useState(1);
-  const [summary, setSummary] = useState<string | null>(null);
-  const [file, setFile] = useState<File | null>(null);
-  const [isProcessing, setIsProcessing] = useState(false);
-  const [logs, setLogs] = useState<string[]>([]);
-  const [outputData, setOutputData] = useState<any>({
-    check_filename_csv: null,
-    check_filename_excel: null,
-    final_filename_csv: null,
-    final_filename_excel: null,
-    rows: null,
-    columns: null
-  });
-
-  useEffect(() => {
-    console.log('Current step:', currentStep);
-  }, [currentStep]);
-
-  useEffect(() => {
-    console.log('File state changed:', file?.name);
-  }, [file]);
-
-  useEffect(() => {
-    console.log('Processing state:', isProcessing);
-  }, [isProcessing]);
-
-  useEffect(() => {
-    console.log('Logs updated:', logs);
-  }, [logs]);
-
-  useEffect(() => {
-    console.log('Output data updated:', outputData);
-  }, [outputData]);
-
-  const handleFileChange = (selectedFile: File | null) => {
-    console.log('File changed:', selectedFile?.name);
-    setFile(selectedFile);
-    setLogs([]);
-  };
-
-  const handleProcess = async (filename: string, selectedColumns: number[]) => {
-    console.log('Process started for file:', filename);
-    console.log('Selected columns:', selectedColumns);
-    try {
-      setIsProcessing(true);
+  // Wrap the original handleFileChange to include auto-navigation
+  const handleFileChange = (file: File | null) => {
+    originalHandleFileChange(file);
+    
+    // If a file was selected, automatically move to the processor section
+    if (file) {
       setCurrentStep(2);
-      setLogs([]);
-      console.log('Calling processFile function');
-      const result = await processFile({
-        filename,
-        selectedColumns,
-        onLog: (log: string) => {
-          console.log('Log received:', log);
-          setLogs((prevLogs) => [...prevLogs, log]);
-        }
-      });
-      console.log('Process completed. Result:', result);
-      setSummary("Processing complete");
-      console.log("Setting output data:", result.output_data);
-      setOutputData(result.output_data);
-      setCurrentStep(3);
-    } catch (error) {
-      console.error('Error processing file:', error);
-      setSummary("Error processing file");
-    } finally {
-      setIsProcessing(false);
     }
   };
 
-  const renderSectionTitle = (title: string, isActive: boolean, onClick: () => void) => {
-    console.log(`Rendering section title: ${title}, Active: ${isActive}`);
-    return (
-      <h2
-        className={`text-2xl font-semibold p-4 mb-4 cursor-pointer ${isActive ? 'text-blue-600' : 'text-gray-400'}`}
-        onClick={onClick}
-      >
-        {title}
-      </h2>
-    );
-  };
+  // Helper function to get button state
+  const getButtonState = (step: number) => ({
+    isActive: currentStep === step,
+    tooltip: `Step ${step}`,
+  });
 
-  const renderContent = () => {
-    console.log('Rendering content');
-    return (
-      <div className="space-y-8">
-        <div className="border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
-          {renderSectionTitle("Input", currentStep === 1, () => setCurrentStep(1))}
-          {currentStep === 1 && <InputSection onFileChange={handleFileChange} />}
-        </div>
-        <div className="border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
-          {renderSectionTitle("Processor", currentStep === 2, () => setCurrentStep(2))}
+  return (
+    <SidebarProvider className="mb-20">
+      <Sidebar variant="floating" className="sticky top-0">
+        <SidebarHeader className="min-h-96">
+          <SidebarMenu>
+            <SidebarMenuItem>
+              <SidebarMenuButton size="lg" asChild>
+                <a href="#">
+                  <div className="flex aspect-square size-8 items-center justify-center rounded-lg bg-sidebar-primary text-sidebar-primary-foreground">
+                    <GalleryVerticalEnd className="size-4" />
+                  </div>
+                  <div className="flex flex-col gap-0.5 leading-none">
+                    <span className="font-semibold">Engine Beta</span>
+                    <span className="">v1.0</span>
+                  </div>
+                </a>
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+          <SidebarMenu>
+            <SidebarMenuItem className='gap-2'>
+              <SidebarMenuButton
+                onClick={() => setCurrentStep(1)}
+                {...getButtonState(1)}
+              >
+                <FileText className="mr-2" />
+                Input
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                onClick={() => setCurrentStep(2)}
+                {...getButtonState(2)}
+              >
+                <Cog className="mr-2" />
+                Processor
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+            <SidebarMenuItem>
+              <SidebarMenuButton
+                onClick={() => setCurrentStep(3)}
+                {...getButtonState(3)}
+              >
+                <FileOutput className="mr-2" />
+                Output
+              </SidebarMenuButton>
+            </SidebarMenuItem>
+          </SidebarMenu>
+        </SidebarHeader>
+      </Sidebar>
+
+      <SidebarInset>
+        <div className="flex-1 space-y-4 p-2">
+          {currentStep === 1 && (
+            <div className="rounded-lg border bg-card">
+              <InputSection onFileChange={handleFileChange} />
+            </div>
+          )}
+
           {currentStep === 2 && (
-            <>
-              <ProcessorSection onProcess={handleProcess} isProcessing={isProcessing} logs={logs} file={file} />
-              <div className="p-4 shadow-sm">
-                <ProgressStepper currentStep={currentStep} setCurrentStep={setCurrentStep}/>
-              </div>
-            </>
+            <div className="rounded-lg border bg-card">
+              <ProcessorSection
+                onProcess={handleProcess}
+                isProcessing={isProcessing}
+                logs={logs}
+                file={file}
+              />
+            </div>
+          )}
+
+          {currentStep === 3 && (
+            <div className="rounded-lg border bg-card">
+              <OutputSection summary={summary} outputData={outputData} />
+            </div>
+          )}
+
+          {!apiAccessible && (
+            <div className="mt-4">
+              <ApiStatusAlert apiAccessible={apiAccessible} />
+            </div>
           )}
         </div>
-        <div className="border border-gray-200 dark:border-gray-700 rounded-lg shadow-sm">
-          {renderSectionTitle("Output", currentStep === 3, () => setCurrentStep(3))}
-          {currentStep === 3 && <OutputSection summary={summary} outputData={outputData} />}
-        </div>
-      </div>
-    );
-  };
-
-  console.log('Rendering AppIndex component');
-  return (
-    <div className="max-w-7xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800 dark:text-gray-200">Beta v1.0</h1>
-      {renderContent()}
-      <ApiStatusAlert apiAccessible={apiAccessible} />
-    </div>
+      </SidebarInset>
+    </SidebarProvider>
   );
 }

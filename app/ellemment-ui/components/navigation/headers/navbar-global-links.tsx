@@ -7,8 +7,8 @@ import { useRef, useState } from 'react';
 const navItems = [
   { label: 'Keynote', href: '/#keynote' },
   { label: 'Application', href: '/account/beta' },
-  { label: 'Documentation', href: '/docs' },
-  { label: 'Changelog', href: '/docs' },
+  { label: 'Documentation', href: '/engine' },
+  { label: 'Changelog', href: '/engine' },
   { label: 'Information', href: '/docs' },
   { label: 'Account', href: '/account/settings' },
 ] as const;

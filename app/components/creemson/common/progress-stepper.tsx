@@ -1,6 +1,4 @@
-// app/components/beta/common/progress-stepper.tsx
-
-import React from 'react';
+// app/components/creemson/common/progress-stepper.tsx
 
 interface ProgressStepperProps {
   currentStep: number;

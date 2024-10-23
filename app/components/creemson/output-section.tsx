@@ -1,4 +1,5 @@
 // app/components/beta/output-section.tsx
+
 import React, { useEffect, useState, useCallback } from 'react';
 import {
   Table,

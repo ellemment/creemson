@@ -288,3 +288,12 @@ export async function downloadFile(url: string, retries: number = 0) {
 		return downloadFile(url, retries + 1)
 	}
 }
+
+function toBase64(string: string) {
+	if (typeof window === 'undefined') {
+		return Buffer.from(string).toString('base64')
+	} else {
+		return window.btoa(string)
+	}
+}
+export { toBase64 }
